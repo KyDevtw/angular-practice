@@ -1,3 +1,12 @@
+<div class="container">
+  <div class="row">
+    <!-- 雙向綁定 使用 [()], angular.module 要 import FormsModule 才能夠達成雙向綁定 -->
+    <!-- [(ngModel)]="" 同時先給了 input value，也同時綁定 event-->
+    <input type="text" name="" [(ngModel)]="serverName">
+    <p class="ml-3">{{ serverName }}</p>
+  </div>
+</div>
+<hr>
 <app-server></app-server>
 <app-server></app-server>
 <hr>
@@ -18,4 +27,11 @@
     <div class="mx-3">=</div>
     <p>{{allowNweServer}}</p>
   </div>
+  <div class="row">
+    <label for="server Name" class="mr-3">server Name</label>
+    <!-- input event 監聽使用者對 input 輸入行為，$event 負責傳遞該事件有value時的value -->
+    <input type="text" name="" id="server Name" (input)="onUpdateServerName($event)">
+    <p class="ml-3">{{ serverName }}</p>
+  </div>
 </div>
+<hr>
