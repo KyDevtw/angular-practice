@@ -6,5 +6,10 @@ import { Component } from "@angular/core";
 })
 
 export class ServerComponent {
+  serverId: number = 10; // string binding，最後一定會被轉成或是 return string
+  serverStatus: string = "offline";
 
+  getServerStatus() {
+    return this.serverStatus
+  }
 }

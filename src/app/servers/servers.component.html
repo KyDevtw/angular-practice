@@ -1,2 +1,21 @@
 <app-server></app-server>
 <app-server></app-server>
+<hr>
+<!-- property binding 使用[attr]="component 對應的資料名稱，一樣可以透過! 反轉布林值" -->
+<!-- (event name) => {} event binding，命名方式通常為 html 原生事件去掉 on, ex: onclick = click, onmouseenter = mouseenter -->
+<button 
+  class="btn btn-primary" 
+  [disabled]="!allowNweServer"
+  (click)="onCreateServer()"
+>Add Server</button>
+<p>{{serverCreationStatus}}</p>
+<!-- click binding 也可以直接寫 function 邏輯在內 -->
+  
+<!-- property binding 也有非 html attr 屬性可以用 -->
+<div class="container">
+  <div class="row">
+    <p [innerText]="allowNweServer"></p>
+    <div class="mx-3">=</div>
+    <p>{{allowNweServer}}</p>
+  </div>
+</div>

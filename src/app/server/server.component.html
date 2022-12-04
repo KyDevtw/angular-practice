@@ -1,3 +1,8 @@
 <p>my server component</p>
 <p>`$ ng generate component componentName` to auto generate a new component with cli</p>
 <p>`$ ng generate component componentName` = `$ ng g c componentName`</p>
+<hr>
+<!-- {{ 內除了 string binding 也可以用字串直接 render 文字 }} -->
+<p>{{ "Server" }} with ID {{ serverId }} is {{ serverStatus }} </p>
+<!-- getServerStatus() return string -->
+<p>{{ "Server" }} with ID {{ serverId }} is {{ getServerStatus() }} </p>
