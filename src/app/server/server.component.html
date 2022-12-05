@@ -3,6 +3,9 @@
 <p>`$ ng generate component componentName` = `$ ng g c componentName`</p>
 <hr>
 <!-- {{ 內除了 string binding 也可以用字串直接 render 文字 }} -->
-<p>{{ "Server" }} with ID {{ serverId }} is {{ serverStatus }} </p>
+<!-- ngStyle 是 directive, 中括號只是 binding property 所需，兩者是分開的，但這裡的 property 是 ngStyle-->
+<!-- ngStyle 內帶入類似 css 的物件，可以用 css 寫法 也可以用小駝峰 -->
+<!-- ngClass 物件形式，key 是要加入的 class name，value 是判斷是否加入的布林值 -->
+<p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === 'online'}">{{ "Server" }} with ID {{ serverId }} is {{ serverStatus }} </p>
 <!-- getServerStatus() return string -->
 <p>{{ "Server" }} with ID {{ serverId }} is {{ getServerStatus() }} </p>
