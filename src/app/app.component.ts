@@ -13,8 +13,13 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'my-app';
   name = "Kurt";
+  serverElements = {type: "server", name: "testServer", content: "Just a Server"};
 
   ngOnInit(): void {
     
+  }
+
+  onServerAdded(serverData: string){
+    this.serverElements = {type: "server", name: "onServerAdded" + serverData, content: "onServerAdded"};
   }
 }

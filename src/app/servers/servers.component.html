@@ -1,5 +1,16 @@
 <div class="container">
   <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">{{element.name}}</div>
+      <div class="panel-body">
+        <p>
+          <strong *ngIf="element.type === 'server'" style="color: red;">{{element.content}}</strong>
+          <em *ngIf="element.type === 'blueprint'" style="color: red;">{{element.content}}</em>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <!-- 雙向綁定 使用 [()], angular.module 要 import FormsModule 才能夠達成雙向綁定 -->
     <!-- [(ngModel)]="" 同時先給了 input value，也同時綁定 event-->
     <input type="text" name="" [(ngModel)]="serverName">

@@ -6,7 +6,12 @@
       <div>{{title}}</div>
       <h1>{{title}}</h1>
       <hr>
-      <app-servers></app-servers>
+      <!-- 傳遞 serverElements props -->
+      <!-- [child component props]='parent component props' -->
+      <!-- [] 表示 props binding-->
+      <!-- servers component 要加 @Input -->
+      <!-- (serverCreated) 內的 serverCreated 是自製事件-->
+      <app-servers [srvElement]="serverElements" (serverCreatedPropsPassing)="onServerAdded($event)" ></app-servers>
     </div>
   </div>
 </div>
