@@ -16,7 +16,10 @@
   </div>
 </div>
 <hr>
-<app-server></app-server>
+<!-- *號用在會直接更動 Dom 的 Directive -->
+<!-- ngFor="let variableName of componentProperty，variableName 可以在 html 中顯示 {{ variableName }}" -->
+<!-- ngFor 第二個參數 index 是該物節點的索引值，可以給予變數在其他 Directive 使用 例如 [ngStyle]-->
+<app-server *ngFor="let server of servers; let i = index"></app-server>
 <hr>
 <!-- property binding 使用[attr]="component 對應的資料名稱，一樣可以透過! 反轉布林值" -->
 <!-- (event name) => {} event binding，命名方式通常為 html 原生事件去掉 on, ex: onclick = click, onmouseenter = mouseenter -->
