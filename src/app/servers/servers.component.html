@@ -1,4 +1,18 @@
 <div class="container">
+  <div class="row mb-3">
+    <!-- 接收 app-servers 中夾的 tags -->
+    <ng-content></ng-content>
+  </div>
+  <div class="row mb-3">
+    <input type="text" name="" #serverContentInput>
+    <button class="btn btn-primary ml-3" (click)="onCreateServerWithViewChild()">Add Server</button>
+  </div>
+  <div class="row">
+    <!-- # 是 local Reference，可以用在任何 html element -->
+    <!-- 這樣可以取代部分 雙向 binding -->
+    <input type="text" name="" #serverNameInput>
+    <button class="btn btn-primary ml-3" (click)="onCreateServerWithRef(serverNameInput)">Add Server</button>
+  </div>
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-heading">{{element.name}}</div>
@@ -36,7 +50,7 @@
 <!-- (event name) => {} event binding，命名方式通常為 html 原生事件去掉 on, ex: onclick = click, onmouseenter = mouseenter -->
 <button 
   class="btn btn-primary" 
-  [disabled]="!allowNweServer"
+  [disabled]="!allowNewServer"
   (click)="onCreateServer()"
 >Add Server</button>
 <p>{{serverCreationStatus}}</p>
@@ -45,9 +59,9 @@
 <!-- property binding 也有非 html attr 屬性可以用 -->
 <div class="container">
   <div class="row">
-    <p [innerText]="allowNweServer"></p>
+    <p [innerText]="allowNewServer"></p>
     <div class="mx-3">=</div>
-    <p>{{allowNweServer}}</p>
+    <p>{{allowNewServer}}</p>
   </div>
   <div class="row">
     <label for="server Name" class="mr-3">server Name</label>
