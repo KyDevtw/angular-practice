@@ -13,7 +13,7 @@
       <!-- (serverCreated) 內的 serverCreated 是自製事件-->
       <app-servers [srvElement]="serverElements" (serverCreatedPropsPassing)="onServerAdded($event)" >
         <!-- component tag 夾帶的 children 會傳遞到內部的 ng-content -->
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="serverElements.type === 'server'" style="color: red;">{{serverElements.content}}</strong>
           <em *ngIf="serverElements.type === 'blueprint'" style="color: red;">{{serverElements.content}}</em>
         </p>

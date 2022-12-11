@@ -14,7 +14,8 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy} from '@angular/core';
+  OnDestroy,
+  ContentChild} from '@angular/core';
 
 @Component({
   selector: 'app-servers', // 這裏類似於 css 選擇器，也可以用[app-servers]選擇特定 attr 標籤，.app-servers 選擇 class 為 app-servers 的標籤
@@ -43,6 +44,8 @@ export class ServersComponent implements OnInit, OnChanges, DoCheck, AfterConten
   @Output() serverCreatedPropsPassing = new EventEmitter<string>();
   // @ViewChild 內部填寫 refElement，也可以直接傳遞一個 Component 例如 ServerComponent (AppComponent 內註冊的 component)
   @ViewChild('serverContentInput') serverContentInput: ElementRef;
+  // 用法類似 ViewChild 內部寫 refelement，paragraph 可以到底下 ngAfterContentInit 之後的觸發函式使用
+  @ContentChild('contentParagraph') paragraph: ElementRef;
 
   constructor() {
     console.log('constructor called!')
@@ -68,6 +71,8 @@ export class ServersComponent implements OnInit, OnChanges, DoCheck, AfterConten
   ngAfterContentInit(): void {
     // ngDoCheck 後觸發一次（content 指的是 ng-content）
     console.log('ngAfterContentInit called!')
+    // .nativeElement.textContent 讀取 element 內部 text
+    console.log("Text content of paragraph: " + this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked(): void {
